@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./iconfont.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About - My GitHub Portfolio</title>
+    <style>
+        /* Resetting some styles for better compatibility */
+        body, h1, h2, p, a, ul {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #faf0e6;
+            color: #333333;
+            padding: 0px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .sidebar-container {
+            width: 250px;
+            min-height: 800px;
+            padding: 20px;
+            background: #1670be;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            position: sticky;
+            top: 20px;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-container {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        .navigation {
+            background: #faf0e6;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .navigation a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navigation a.active {
+            background-color: #444444;
+            color: #fff;
+        }
+
+        .navigation a:hover {
+            background-color: #999;
+            color: #fff;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile h1 {
+            font-size: 2em;
+        }
+
+        .profile p {
+            font-size: 0.5em;
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            text-align: left;
+            border-top: 1px dashed white;
+            padding-top: 10px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            font-size: 0.8em;
+            color: white;
+        }
+
+        .contact-info p:nth-last-child(3) {
+            border-bottom: 1px dashed white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .research-fields-container {
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+        }
+
+        .research-field {
+            background: #f5f9fd;
+            border-radius: 20px; 
+            padding: 10px 15px;
+            color: #2c4f77;
+            font-weight: 500;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .research-field:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-weight: bold;
+            margin-bottom: 0px;
+            text-align: left;
+            font-size: 0.6em;
+            color: #999;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            width: 100%;
+        }
+
+        footer {
+            background: #faf0e6;
+            color: #333333;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academic Profile</h1>
+    </header>
+
+    <div class="container">
+        <div class="sidebar-container">
+            <div class="profile">
+                <h1>Zhichen Lu</h1>
+                <div class="contact-info">
+                    <p><span class="iconfont icon-major" style="margin-right: 10px;"></span> Advanced Systems and Robotics<br>Artificial Intelligence</p>
+                    <p><span class="iconfont icon-phone" style="margin-right: 10px;"></span> +33 (0)7 71 01 73 65</p>
+                    <p><span class="iconfont icon-email" style="margin-right: 10px;"></span> luhf.2044302@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="content-container">
+                <div class="navigation">
+                    <a href="index.html" class="active">About</a>
+                    <a href="experiences.html">Experiences</a>
+                </div>
+                <div class="research-fields-container">
+                    <h2>BIO</h2>
+                    <p><span: style="font-family: Arial, Helvetica, sans-serif">Welcome! I'm Zhichen Lu, a Master's student in Advanced Systems and Robotics at Sorbonne University in Paris. My research focuses on developing collaborative robots with autonomous recognition, interactive control, and self-learning capabilities, with applications such as surgical robotics and smart walkers.</span:></p>
+                    <p><span: style="font-family: Arial, Helvetica, sans-serif">Through experience in academic projects and internships, I have built strong skills in control algorithms, machine learning, and autonomous navigation. My work in robotic control, autonomous driving, and natural language processing has enhanced my technical expertise and collaborative abilities. I'm excited to delve deeper into this field and contribute to its future innovations. </span:></p>
+                    </ul>
+                </div>
+                <div class="research-fields-container">
+                    <h2>FIELDS OF RESEARCH</h2>
+                        <div class="research-field">Machine Learning</div>
+                        <div class="research-field">Deep Learning</div>
+                        <div class="research-field">Manufacturing Robotics and Mechatronics</div> 
+                        <div class="research-field">Mobile Robots</div>
+                        <div class="research-field">Automation</div>
+                        <div class="research-field">Digital Signal Processing</div>
+                        <div class="research-field">System Identification and Modeling</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2024 Zhichen Lu. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

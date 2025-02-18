@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./iconfont.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Experiences - My GitHub Portfolio</title>
+    <style>
+        /* Resetting some styles for better compatibility */
+        body, h1, p, a, ul {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #faf0e6;
+            color: #333333;
+            padding: 0px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .sidebar-container {
+            width: 250px;
+            min-height: 800px;
+            padding: 20px;
+            background: #1670be;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            position: sticky;
+            top: 20px;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-container {
+            flex-grow: 1;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navigation {
+            background: #faf0e6;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .navigation a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navigation a.active {
+            background-color: #444444;
+            color: #fff;
+        }
+
+        .navigation a:hover {
+            background-color: #999;
+            color: #fff;
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            text-align: left;
+            border-top: 1px dashed white;
+            padding-top: 10px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            font-size: 0.8em;
+            color: white;
+        }
+
+        .contact-info p:nth-last-child(3) {
+            border-bottom: 1px dashed white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .experiences {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .experience-card {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .experience-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .type-label {
+            font-weight: bold;
+            font-size: 0.6em;
+            color: #999;
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 0px;
+            display: block;
+        }
+        
+        .experience-card-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .experience-card-content {
+            font-size: 1em;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        footer {
+            background: #faf0e6;
+            color: #333333;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academic Profile</h1>
+    </header>
+
+    <div class="container">
+        <div class="sidebar-container">
+            <div class="profile">
+                <h1>Zhichen Lu</h1>
+                <div class="contact-info">
+                    <p><span class="iconfont icon-major" style="margin-right: 10px;"></span> Advanced Systems and Robotics<br>Artificial Intelligence</p>
+                    <p><span class="iconfont icon-phone" style="margin-right: 10px;"></span> +33 (0)7 71 01 73 65</p>
+                    <p><span class="iconfont icon-email" style="margin-right: 10px;"></span> luhf.2044302@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="navigation">
+                <a href="index.html">About</a>
+                <a href="experiences.html" class="active">Experiences</a>
+            </div>
+            <div class="dropdown">
+                <label for="sortOptions">Sort by:</label>
+                <select id="sortOptions">
+                    <option value="default">Default</option>
+                    <option value="type">Type</option>
+                    <option value="title-asc">Title A-Z</option>
+                    <option value="title-desc">Title Z-A</option>
+                </select>
+            </div>
+            <div class="experiences">
+                <a href="https://github.com/rainbowl99/Translator_en-fr.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Intern</span>
+                        <span class="experience-card-title">English-to-French translator</span>
+                        <p><span class="experience-card-content">English-to-French translator based on Transformer implementation.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/MultiModel_vision.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Intern</span>
+                        <span class="experience-card-title">Vision Multi-Model</span>
+                        <p><span class="experience-card-content">MultiModel learning vision model for image description.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/e2e_camera_parking.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Intern</span>
+                        <span class="experience-card-title">Parking_e2e [Private]</span>
+                        <p><span class="experience-card-content">Camera-based End-to-end Parking Network, from Images to Planning.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Autonomous_Driving_Algorithm.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Intern</span>
+                        <span class="experience-card-title">Autonomous_Driving_Algorithm</span>
+                        <p><span class="experience-card-content">An autonomous driving algorithm for lane-level path and speed planning based on dynamic programming and quadratic programming in the Frenet coordinate system.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/IDENTIFICATION-D-UN-ROBOT-PLAN-RR.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">Identification of Inertial and Geometric Properties of a Planar RRR Robot</span>
+                        <p><span class="experience-card-content">Objective of identifying the inertial and geometric properties of a planar RRR robot, focusing on the analysis of angle and torque signals based on a periodic trajectory to deduce the dynamic parameters of the robot.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Identification_2ddl_Bras_dynamique.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">Positional Control of a 2-DOF Planar Robot Manipulator</span>
+                        <p><span class="experience-card-content">Focus on the positional control of a two-degree-of-freedom planar robot manipulator, emphasizing PID controller implementation and tuning, analysis of system nonlinearities and mechanical coupling, and evaluation of decentered PID controllers for each axis.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Optimisation_Solution_pour_le_mouvement_d-un_bras_robotique_a_2ddl.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">Solution Optimization for the Motion of a 2-DOF Robotic Arm</span>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/ROS_turtlebot3.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">ROS-Based_Autonomous_Navigation_of_Turtlebot3</span>
+                        <p><span class="experience-card-content">An autonomous navigation algorithm for Turtlebot 3 that utilizes the Robot Operating System (ROS/ROS2) to tackle various challenges in complex environments.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Interface-Haptique-FALCON.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">Integration of the Novint Falcon Device in Haptic Interfaces and Virtual Object Manipulation</span>
+                        <p><span class="experience-card-content">Exploration of the Novint Falcon device, including workspace sizing and implementation of virtual springs and dampers, followed by its integration into a physics simulator using Blender for manipulating virtual objects through haptic interfaces.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Multi-rotor-UAV-Attitude-Estimation.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">UAV_Attitude_Estimation</span>
+                        <p><span class="experience-card-content">Attitude estimation algorithms based MATLAB-Simulink for UAVs.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/MLA_Projet_reproduction.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">GAN_FGSM</span>
+                        <p><span class="experience-card-content">Adversarial example generation and model robustness enhancement based on the Fast Gradient Sign Method (FGSM).</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Suivi_Chemin.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">Trajectory Tracking Algorithms for Wheeled Robots Using MATLAB Simulink</span>
+                        <p><span class="experience-card-content">Objective of applying trajectory tracking algorithms for wheeled robots, particularly unicycles, using MATLAB Simulink.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Projet-de-Simulation-robotique.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">Design of Classes and Methods for Simulating Various Physical Scenarios</span>
+                        <p><span class="experience-card-content">Design of foundational classes and methods for simulation to implement various scenarios, including free fall, damped spring systems, and oscillatory systems, etc.</span></p>
+                    </div>
+                </a>
+                <a href="https://github.com/rainbowl99/Saboteur.git" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="experience-card">
+                        <span class="type-label">Project</span>
+                        <span class="experience-card-title">Saboteur</span>
+                        <p><span class="experience-card-content">A corresponding computer game based on the card game saboteur, based on python.</span></p>
+                    </div>
+                </a>
+                <!-- Add more experiences here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2024 Zhichen Lu. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const experienceCards = Array.from(document.querySelectorAll('.experience-card'));
+        const originalOrder = [...experienceCards]; // 保存原始顺序
+        
+        document.getElementById('sortOptions').addEventListener('change', function() {
+            const sortValue = this.value;
+    
+            let sortedCards;
+    
+            switch (sortValue) {
+                case 'title-asc':
+                    sortedCards = experienceCards.sort((a, b) => {
+                        const titleA = a.querySelector('.experience-card-title').textContent.trim().toLowerCase();
+                        const titleB = b.querySelector('.experience-card-title').textContent.trim().toLowerCase();
+                        return titleA.localeCompare(titleB); // 升序
+                    });
+                    break;
+    
+                case 'title-desc':
+                    sortedCards = experienceCards.sort((a, b) => {
+                        const titleA = a.querySelector('.experience-card-title').textContent.trim().toLowerCase();
+                        const titleB = b.querySelector('.experience-card-title').textContent.trim().toLowerCase();
+                        return titleB.localeCompare(titleA); // 降序
+                    });
+                    break;
+    
+                case 'type':
+                    sortedCards = experienceCards.sort((a, b) => {
+                        const typeA = a.querySelector('.type-label').textContent.trim();
+                        const typeB = b.querySelector('.type-label').textContent.trim();
+                        return typeA.localeCompare(typeB);
+                    });
+                    break;
+    
+                case 'default':
+                default:
+                    sortedCards = originalOrder; // 恢复到原始顺序
+                    break;
+            }
+    
+            const experiencesContainer = document.querySelector('.experiences');
+            experiencesContainer.innerHTML = '';
+            sortedCards.forEach(card => experiencesContainer.appendChild(card.parentElement));
+        });
+    </script>    
+    
+</body>
+</html>
+
