@@ -7,20 +7,17 @@
     <link rel="stylesheet" href="styles.css">
     <title>About - My GitHub Portfolio</title>
     <style>
-        /* Resetting some styles for better compatibility */
         body, h1, h2, p, a, ul {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333333;
             line-height: 1.6;
         }
-
         header {
             background: #87CEEB;
             color: #333333;
@@ -29,7 +26,6 @@
             font-family: 'Times New Roman', Times, serif;
             font-style: italic;
         }
-
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -37,7 +33,6 @@
             gap: 20px;
             align-items: flex-start;
         }
-
         .sidebar-container {
             width: 250px;
             min-height: 800px;
@@ -50,21 +45,18 @@
             flex-shrink: 0;
             color: white;
         }
-
         .content-wrapper {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-
         .content-container {
             padding: 20px;
             background: #fff;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
         }
-
         .navigation {
             background: #87CEEB;
             padding: 15px;
@@ -73,7 +65,6 @@
             display: flex;
             gap: 10px;
         }
-
         .navigation a {
             color: #333;
             text-decoration: none;
@@ -82,78 +73,54 @@
             font-weight: bold;
             transition: background-color 0.3s, color 0.3s;
         }
-
         .navigation a.active {
             background-color: #444444;
             color: #fff;
         }
-
         .navigation a:hover {
             background-color: #999;
             color: #fff;
         }
-
         .profile {
             text-align: center;
         }
-
         .profile h1 {
             font-size: 2em;
         }
-
         .profile p {
             font-size: 0.5em;
             color: white;
         }
-
         .contact-info {
             margin-top: 15px;
             text-align: left;
             border-top: 1px dashed white;
             padding-top: 10px;
         }
-
         .contact-info p {
             display: flex;
             align-items: center;
             font-size: 0.8em;
             color: white;
         }
-
         .contact-info p:nth-last-child(3) {
             border-bottom: 1px dashed white;
             padding-bottom: 10px;
             margin-bottom: 10px;
         }
-
-        .research-fields-container {
-            padding: 15px;
-            background: #fff;
-            border: 1px solid #dddddd;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 10px; 
+        .certifications {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed white;
         }
-
-        .research-field {
-            background: #f5f9fd;
-            border-radius: 20px; 
-            padding: 10px 15px;
-            color: #2c4f77;
-            font-weight: 500;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            white-space: nowrap;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .certifications h3 {
+            font-size: 1em;
+            margin-bottom: 10px;
         }
-
-        .research-field:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .cert-item {
+            margin-bottom: 10px;
+            font-size: 0.8em;
         }
-
         h2 {
             font-weight: bold;
             margin-bottom: 0px;
@@ -164,7 +131,6 @@
             display: block;
             width: 100%;
         }
-
         footer {
             background: #87CEEB;
             color: #333333;
@@ -188,6 +154,26 @@
                     <p><span class="iconfont icon-phone" style="margin-right: 10px;"></span> +33 (0)7 83 11 83 07</p>
                     <p><span class="iconfont icon-email" style="margin-right: 10px;"></span> cecileoujingshan@gmail.com</p>
                 </div>
+                
+                <div class="certifications">
+                    <h3>Certifications</h3>
+                    <div class="cert-item"><strong>Microsoft – Principes de gestion de projet</strong></div>
+                    <ul class="cert-item">
+                        <li>Project Management</li>
+                        <li>Gestion du Changement</li>
+                        <li>Leadership</li>
+                        <li>Résolution de problèmes</li>
+                        <li>Gestion de la performance des équipes</li>
+                        <li>Gouvernance</li>
+                        <li>Gestion des parties prenantes</li>
+                        <li>Engagement des parties prenantes</li>
+                        <li>Méthodologie PMI</li>
+                        <li>Pensée systémique</li>
+                        <li>Gestion d'équipe</li>
+                        <li>Gestion des risques</li>
+                        <li>Gestion des risques liés aux projets</li>
+                    </ul>
+                </div>
             </div>
         </div>
         
@@ -197,14 +183,13 @@
                     <a href="index.html" class="active">About</a>
                     <a href="experiences.html">Experiences</a>
                 </div>
+
                 <div class="research-fields-container">
                     <h2>BIO</h2>
-                    <p><span: style="font-family: Arial, Helvetica, sans-serif">Welcome! I am Cécile, a Master’s student in Mechanical & Energy Engineering at Sorbonne University. My research focuses on thermal optimization in electric motors, computational fluid dynamics (CFD), and renewable energy technologies.
-
-
-                    <p><span: style="font-family: Arial, Helvetica, sans-serif">I have a strong background in mechanical engineering, thermodynamics, and numerical simulations. My expertise includes ANSYS, CATIA V5, MATLAB, Fortran, Python, and various simulation tools used for energy efficiency and mechanical design. Passionate about technological innovations, I aim to contribute to sustainable and efficient energy solutions.</span:></p>
-                    </ul>
+                    <p>Welcome! I am Cécile, a Master’s student in Mechanical & Energy Engineering at Sorbonne University. My research focuses on thermal optimization in electric motors, computational fluid dynamics (CFD), and renewable energy technologies.</p>
+                    <p>I have a strong background in mechanical engineering, thermodynamics, and numerical simulations. My expertise includes ANSYS, CATIA V5, MATLAB, Fortran, Python, and various simulation tools used for energy efficiency and mechanical design. Passionate about technological innovations, I aim to contribute to sustainable and efficient energy solutions.</p>
                 </div>
+
                 <div class="research-fields-container">
                     <h2>Research Areas</h2>
                         <div class="research-field">3D Modeling</div>
@@ -221,65 +206,31 @@
                         <div class="research-field">System Identification and Modeling</div>
                 </div>
 
-                <!-- NEW MEDIA SECTION -->
                 <div class="research-fields-container">
                     <h2>Media</h2>
-
-                    <!-- Exemple d'image -->
                     <div class="content-container">
                         <h3>Conception Simulation Result</h3>
-                        <img src="assets/robotl2.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/1.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/2.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/3.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/4.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/5.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/6.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/7.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/8.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/9.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/11.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/22.png" alt="Simulation Result" width="180" height="auto">
-                        <img src="assets/flammeconbu.png" alt="Simulation Result" width="180" height="auto">
-
+                        <img src="assets/robotl2.png" width="180">
+                        <img src="assets/1.png" width="180">
+                        <img src="assets/2.png" width="180">
+                        <img src="assets/3.png" width="180">
+                        <img src="assets/4.png" width="180">
+                        <img src="assets/5.png" width="180">
+                        <img src="assets/6.png" width="180">
+                        <img src="assets/7.png" width="180">
+                        <img src="assets/8.png" width="180">
+                        <img src="assets/9.png" width="180">
+                        <img src="assets/11.png" width="180">
+                        <img src="assets/22.png" width="180">
+                        <img src="assets/flammeconbu.png" width="180">
                     </div>
-
-                    <!-- Exemple vidéo YouTube -->
-                    <!--
-                    <div class="content-container">
-                        <h3>Project Presentation Video</h3>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/ID_DE_TA_VIDEO" 
-                                    title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    -->
-
-                    <!-- Exemple vidéo locale -->
-                    <!--
-                    <div class="content-container">
-                        <h3>Demo (Local Video)</h3>
-                        <div class="video-container">
-                            <video controls>
-                                <source src="assets/demo.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                    -->
                 </div>
-                <!-- END MEDIA SECTION -->
-                
             </div>
         </div>
     </div>
 
     <footer>
-        <p>Copyright &copy; 2024 Cécile Oujing S. All Rights Reserved.</p>
+        <p>Copyright © 2024 Cécile Oujing S. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
