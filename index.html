@@ -7,160 +7,353 @@
     <link rel="stylesheet" href="styles.css">
     <title>About - My GitHub Portfolio</title>
     <style>
-        body, h1, h2, h3, p, a, ul, li { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; line-height: 1.6; }
-        header { background: #87CEEB; color: #333; padding: 0px; text-align: center; font-family: 'Times New Roman', Times, serif; font-style: italic; }
-        .container { max-width: 1200px; margin: 20px auto; display: flex; gap: 20px; align-items: flex-start; }
-        .sidebar-container { width: 300px; min-height: 800px; padding: 20px; background: #1670be; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 12px; position: sticky; top: 20px; flex-shrink: 0; color: white; }
-        .profile h1 { font-size: 2em; text-align: center; }
-        .contact-info { margin-top: 15px; text-align: left; border-top: 1px dashed white; padding-top: 10px; }
-        .contact-info p { display: flex; align-items: center; font-size: 0.8em; color: white; margin-bottom: 5px; }
-        .certifications { margin-top: 20px; }
-        .certifications h2 { font-size: 1em; margin-bottom: 10px; color: #fff; border-bottom: 1px dashed white; padding-bottom: 5px; }
-        .cert-section { margin-bottom: 15px; }
-        .cert-section h3 { font-size: 0.9em; cursor: pointer; margin-bottom: 5px; color: #fff; display: flex; justify-content: space-between; align-items: center; }
-        .cert-section h3:hover { color: #FFD700; }
-        .cert-section ul, .cert-section p.details { list-style: disc inside; margin-left: 0; display: none; font-size: 0.8em; line-height: 1.3em; }
-        .cert-section ul li { margin-bottom: 3px; }
-        .cert-section.active ul, .cert-section.active p.details { display: block; }
-        .content-wrapper { flex-grow: 1; display: flex; flex-direction: column; gap: 20px; }
-        .content-container { padding: 20px; background: #fff; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 12px; }
-        .navigation { background: #87CEEB; padding: 15px; text-align: left; margin-bottom: 20px; display: flex; gap: 10px; }
-        .navigation a { color: #333; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; transition: background-color 0.3s, color 0.3s; }
+        /* Resetting some styles */
+        body, h1, h2, h3, p, a, ul {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #87CEEB;
+            color: #333;
+            padding: 0px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .sidebar-container {
+            width: 280px;
+            min-height: 800px;
+            padding: 20px;
+            background: #1670be;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            position: sticky;
+            top: 20px;
+            flex-shrink: 0;
+            color: white;
+        }
+        .profile { text-align: center; }
+        .profile h1 { font-size: 2em; }
+        .contact-info {
+            margin-top: 15px;
+            text-align: left;
+            border-top: 1px dashed white;
+            padding-top: 10px;
+        }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            font-size: 0.8em;
+            color: white;
+        }
+        .contact-info p:nth-last-child(3) {
+            border-bottom: 1px dashed white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .certifications {
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+        .certifications h3 {
+            font-size: 0.9em;
+            text-decoration: underline;
+            margin-bottom: 8px;
+        }
+        .certifications ul {
+            list-style-type: disc;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .content-container {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+        .navigation {
+            background: #87CEEB;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .navigation a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
         .navigation a.active { background-color: #444; color: #fff; }
         .navigation a:hover { background-color: #999; color: #fff; }
-        .research-fields-container { padding: 15px; background: #fff; border: 1px solid #ddd; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
-        .research-field { background: #f5f9fd; border-radius: 20px; padding: 10px 15px; color: #2c4f77; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.1); white-space: nowrap; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .research-field:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
-        h2 { font-weight: bold; margin-bottom: 0px; text-align: left; font-size: 0.6em; color: #999; font-family: 'Courier New', Courier, monospace; display: block; width: 100%; }
-        footer { background: #87CEEB; color: #333; text-align: center; margin-top: 20px; padding: 20px; }
-        .media-container img { margin-right: 10px; margin-bottom: 10px; border-radius: 6px; }
+        .research-fields-container {
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .research-field {
+            background: #f5f9fd;
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: #2c4f77;
+            font-weight: 500;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            white-space: nowrap;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .research-field:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 0.8em;
+            color: #999;
+            font-family: 'Courier New', Courier, monospace;
+            width: 100%;
+        }
+        footer {
+            background: #87CEEB;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        /* MEDIA GRID + LIGHTBOX */
+        .media-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .media-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .media-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .lightbox-img {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 40px;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .prev:hover, .next:hover, .close:hover { color: #f1f1f1; }
     </style>
 </head>
 <body>
-<header>
-    <h1>Academic Profile</h1>
-</header>
+    <header>
+        <h1>Academic Profile</h1>
+    </header>
 
-<div class="container">
-    <div class="sidebar-container">
-        <div class="profile">
-            <h1>Cecile Oujing Shan</h1>
-            <div class="contact-info">
-                <p><span class="iconfont icon-major" style="margin-right: 10px;"></span> Mechanical Engineering | Energy Systems | Computational Modeling <br> Model Based System Engineering </p>
-                <p><span class="iconfont icon-phone" style="margin-right: 10px;"></span> +33 (0)7 83 11 83 07</p>
-                <p><span class="iconfont icon-email" style="margin-right: 10px;"></span> cecileoujingshan@gmail.com</p>
+    <div class="container">
+        <div class="sidebar-container">
+            <div class="profile">
+                <h1>Cecile Oujing Shan</h1>
+                <div class="contact-info">
+                    <p><span class="iconfont icon-major" style="margin-right: 10px;"></span> Mechanical Engineering | Energy Systems | Computational Modeling <br> Model Based System Engineering </p>
+                    <p><span class="iconfont icon-phone" style="margin-right: 10px;"></span> +33 (0)7 83 11 83 07</p>
+                    <p><span class="iconfont icon-email" style="margin-right: 10px;"></span> cecileoujingshan@gmail.com</p>
+                </div>
+
+                <div class="certifications">
+                    <h3>Certifications & Specializations</h3>
+                    <ul>
+                        <li><strong>Project Management Certifications</strong>
+                            <ul>
+                                <li>Microsoft Project Management Principles: Leadership, Governance, Risk Management, Stakeholder Engagement</li>
+                                <li>Engineering Project Management: Initiation & Planning: Project Lifecycle, Planning, Documentation, Stakeholder & Financial Analysis</li>
+                            </ul>
+                        </li>
+                        <li><strong>Machine Learning Specialization</strong>
+                            <ul>
+                                <li>Classification and Regression Trees (CART), Jupyter, Python Programming, Predictive Modeling</li>
+                                <li>Responsible AI, Reinforcement Learning, Feature Engineering, Random Forest Algorithm, Decision Trees</li>
+                                <li>NumPy, Unsupervised Learning, Supervised Learning, Applied Machine Learning, Deep Learning</li>
+                                <li>Artificial Intelligence, TensorFlow, Scikit-learn, AI & Machine Learning (AI/ML), Data Ethics</li>
+                            </ul>
+                        </li>
+                        <li><strong>Certificat Voltaire - Business Level</strong>
+                            <ul>
+                                <li>For executives, assistants, department heads, lawyers, notaries</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fire & Life Safety Systems Specialization</strong>
+                            <ul>
+                                <li>Safety Assurance, Engineering Drawings, Safety and Security</li>
+                                <li>Process Flow Diagrams, Fire And Life Safety, Plumbing, Safety Standards</li>
+                                <li>Blueprint Reading, Safety Training, Building Codes, Structural Analysis, Hydraulics</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
 
-            <!-- Certifications & Specializations -->
-            <div class="certifications">
-                <h2>Certifications & Specializations</h2>
-
-                <div class="cert-section">
-                    <h3>Project Management Certifications <span>+</span></h3>
-                    <ul>
-                        <li><strong>Microsoft Project Management Principles:</strong> Leadership, Governance, Risk Management, Stakeholder Engagement</li>
-                        <li><strong>Engineering Project Management: Initiation & Planning:</strong> Project Lifecycle, Planning, Documentation, Stakeholder & Financial Analysis</li>
-                    </ul>
+        <div class="content-wrapper">
+            <div class="content-container">
+                <div class="navigation">
+                    <a href="index.html" class="active">About</a>
+                    <a href="experiences.html">Experiences</a>
                 </div>
 
-                <div class="cert-section">
-                    <h3>Machine Learning Specialization <span>+</span></h3>
-                    <ul>
-                        <li>Classification and Regression Trees (CART), Jupyter, Python Programming, Predictive Modeling</li>
-                        <li>Responsible AI, Reinforcement Learning, Feature Engineering, Random Forest Algorithm, Decision Trees</li>
-                        <li>NumPy, Unsupervised Learning, Supervised Learning, Applied Machine Learning, Deep Learning</li>
-                        <li>Artificial Intelligence, TensorFlow, Scikit-learn, AI & Machine Learning (AI/ML), Data Ethics</li>
-                    </ul>
+                <div class="research-fields-container">
+                    <h2>BIO</h2>
+                    <p>Welcome! I am Cécile, a Master’s student in Mechanical & Energy Engineering at Sorbonne University. My research focuses on thermal optimization in electric motors, computational fluid dynamics (CFD), and renewable energy technologies.</p>
+                    <p>I have a strong background in mechanical engineering, thermodynamics, and numerical simulations. My expertise includes ANSYS, CATIA V5, MATLAB, Fortran, Python, and various simulation tools used for energy efficiency and mechanical design. Passionate about technological innovations, I aim to contribute to sustainable and efficient energy solutions.</p>
                 </div>
 
-                <div class="cert-section">
-                    <h3>Certificat Voltaire - Business Level <span>+</span></h3>
-                    <p class="details">For executives, assistants, department heads, lawyers, notaries</p>
+                <div class="research-fields-container">
+                    <h2>Research Areas</h2>
+                    <div class="research-field">3D Modeling</div>
+                    <div class="research-field">Reliability, Availability, Maintainability, Safety</div>
+                    <div class="research-field">Advanced Systems and Energy Engineering</div>
+                    <div class="research-field">Continuous Optimization</div>
+                    <div class="research-field">R & D</div>
+                    <div class="research-field">CAD & CAM</div>
+                    <div class="research-field">Fluid Mechanics</div>
+                    <div class="research-field">Solid Mechanics</div>
+                    <div class="research-field">Structural Analysis & Composite Materials</div>
+                    <div class="research-field">Combustion</div>
+                    <div class="research-field">Industry 4.0</div>
+                    <div class="research-field">System Identification and Modeling</div>
                 </div>
 
-                <div class="cert-section">
-                    <h3>Fire & Life Safety Systems Specialization <span>+</span></h3>
-                    <ul>
-                        <li>Safety Assurance, Engineering Drawings, Safety and Security</li>
-                        <li>Process Flow Diagrams, Fire And Life Safety, Plumbing, Safety Standards</li>
-                        <li>Blueprint Reading, Safety Training, Building Codes, Structural Analysis, Hydraulics</li>
-                    </ul>
+                <!-- MEDIA SECTION -->
+                <div class="research-fields-container">
+                    <h2>Media</h2>
+                    <div class="content-container media-container">
+                        <h3>Conception Simulation Result</h3>
+                        <img src="assets/robotl2.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/1.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/2.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/3.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/4.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/5.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/6.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/7.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/8.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/9.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/11.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/22.png" alt="Simulation Result" class="portfolio-img">
+                        <img src="assets/flammeconbu.png" alt="Simulation Result" class="portfolio-img">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="content-wrapper">
-        <div class="content-container">
-            <div class="navigation">
-                <a href="index.html" class="active">About</a>
-                <a href="experiences.html">Experiences</a>
-            </div>
-
-            <!-- BIO -->
-            <div class="research-fields-container">
-                <h2>BIO</h2>
-                <p>Welcome! I am Cécile, a Master’s student in Mechanical & Energy Engineering at Sorbonne University. My research focuses on thermal optimization in electric motors, computational fluid dynamics (CFD), and renewable energy technologies.</p>
-                <p>I have a strong background in mechanical engineering, thermodynamics, and numerical simulations. My expertise includes ANSYS, CATIA V5, MATLAB, Fortran, Python, and various simulation tools used for energy efficiency and mechanical design. Passionate about technological innovations, I aim to contribute to sustainable and efficient energy solutions.</p>
-            </div>
-
-            <!-- Research Areas -->
-            <div class="research-fields-container">
-                <h2>Research Areas</h2>
-                <div class="research-field">3D Modeling</div>
-                <div class="research-field">Reliability, Availability, Maintainability, Safety</div>
-                <div class="research-field">Advanced Systems and Energy Engineering</div>
-                <div class="research-field">Continuous Optimization</div>
-                <div class="research-field">R & D</div>
-                <div class="research-field">CAD & CAM</div>
-                <div class="research-field">Fluid Mechanics</div>
-                <div class="research-field">Solid Mechanics</div>
-                <div class="research-field">Structural Analysis & Composite Materials</div>
-                <div class="research-field">Combustion</div>
-                <div class="research-field">Industry 4.0</div>
-                <div class="research-field">System Identification and Modeling</div>
-            </div>
-
-            <!-- Media Section -->
-            <div class="research-fields-container">
-                <h2>Media</h2>
-                <div class="content-container media-container">
-                    <h3>Conception Simulation Result</h3>
-                    <img src="assets/robotl2.png" alt="Simulation Result" width="180">
-                    <img src="assets/1.png" alt="Simulation Result" width="180">
-                    <img src="assets/2.png" alt="Simulation Result" width="180">
-                    <img src="assets/3.png" alt="Simulation Result" width="180">
-                    <img src="assets/4.png" alt="Simulation Result" width="180">
-                    <img src="assets/5.png" alt="Simulation Result" width="180">
-                    <img src="assets/6.png" alt="Simulation Result" width="180">
-                    <img src="assets/7.png" alt="Simulation Result" width="180">
-                    <img src="assets/8.png" alt="Simulation Result" width="180">
-                    <img src="assets/9.png" alt="Simulation Result" width="180">
-                    <img src="assets/11.png" alt="Simulation Result" width="180">
-                    <img src="assets/22.png" alt="Simulation Result" width="180">
-                    <img src="assets/flammeconbu.png" alt="Simulation Result" width="180">
-                </div>
-            </div>
-
-        </div>
+    <!-- LIGHTBOX HTML -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" id="lightbox-img">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
     </div>
-</div>
 
-<footer>
-    <p>Copyright &copy; 2024 Cécile Oujing S. All Rights Reserved.</p>
-</footer>
+    <!-- LIGHTBOX JS -->
+    <script>
+        const images = document.querySelectorAll('.portfolio-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
 
-<script>
-    // Expand/Collapse functionality
-    const sections = document.querySelectorAll('.cert-section h3');
-    sections.forEach(header => {
-        header.addEventListener('click', () => {
-            const parent = header.parentElement;
-            parent.classList.toggle('active');
-            header.querySelector('span').textContent = parent.classList.contains('active') ? '-' : '+';
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                lightbox.style.display = 'block';
+                lightboxImg.src = img.src;
+            });
         });
-    });
-</script>
+
+        closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        });
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex].src;
+        });
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.style.display = 'none'; });
+    </script>
+
+    <footer>
+        <p>Copyright &copy; 2024 Cécile Oujing S. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
