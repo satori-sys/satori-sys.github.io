@@ -1,359 +1,577 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./iconfont.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>About - My GitHub Portfolio</title>
-    <style>
-        /* Resetting some styles */
-        body, h1, h2, h3, p, a, ul {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: #87CEEB;
-            color: #333;
-            padding: 0px;
-            text-align: center;
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-        .sidebar-container {
-            width: 280px;
-            min-height: 800px;
-            padding: 20px;
-            background: #1670be;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            position: sticky;
-            top: 20px;
-            flex-shrink: 0;
-            color: white;
-        }
-        .profile { text-align: center; }
-        .profile h1 { font-size: 2em; }
-        .contact-info {
-            margin-top: 15px;
-            text-align: left;
-            border-top: 1px dashed white;
-            padding-top: 10px;
-        }
-        .contact-info p {
-            display: flex;
-            align-items: center;
-            font-size: 0.8em;
-            color: white;
-        }
-        .contact-info p:nth-last-child(3) {
-            border-bottom: 1px dashed white;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-        .certifications {
-            margin-top: 20px;
-            font-size: 0.8em;
-        }
-        .certifications h3 {
-            font-size: 0.9em;
-            text-decoration: underline;
-            margin-bottom: 8px;
-        }
-        .certifications ul {
-            list-style-type: disc;
-            padding-left: 15px;
-            margin-bottom: 15px;
-        }
-        .content-wrapper {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .content-container {
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            border-radius: 12px;
-        }
-        .navigation {
-            background: #87CEEB;
-            padding: 15px;
-            text-align: left;
-            margin-bottom: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        .navigation a {
-            color: #333;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .navigation a.active { background-color: #444; color: #fff; }
-        .navigation a:hover { background-color: #999; color: #fff; }
-        .research-fields-container {
-            padding: 15px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .research-field {
-            background: #f5f9fd;
-            border-radius: 20px;
-            padding: 10px 15px;
-            color: #2c4f77;
-            font-weight: 500;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            white-space: nowrap;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .research-field:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        h2 {
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: left;
-            font-size: 0.8em;
-            color: #999;
-            font-family: 'Courier New', Courier, monospace;
-            width: 100%;
-        }
-        footer {
-            background: #87CEEB;
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cécile Oujing Shan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;1,400;1,500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-        /* MEDIA GRID + LIGHTBOX */
-        .media-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-        }
-        .media-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .media-container img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .lightbox-img {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 900px;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 40px;
-            user-select: none;
-            transform: translateY(-50%);
-        }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-        .prev:hover, .next:hover, .close:hover { color: #f1f1f1; }
-    </style>
+:root{
+  --bg:     #f7f6f3;
+  --bg2:    #efede8;
+  --ink:    #1a1916;
+  --ink2:   #5a5750;
+  --ink3:   #9a9690;
+  --rule:   rgba(26,25,22,0.1);
+  --rule2:  rgba(26,25,22,0.06);
+  --accent: #2a4a6b;
+  --accent2:#c0804a;
+  --sans:   'Figtree', sans-serif;
+  --serif:  'Playfair Display', serif;
+  --mono:   'JetBrains Mono', monospace;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--accent)}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,246,243,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+}
+.nav-id{
+  font-family:var(--mono);font-size:0.65rem;
+  color:var(--ink3);letter-spacing:0.08em;
+  padding:16px 0;
+}
+.nav-links{display:flex;gap:0}
+.nav-links a{
+  font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--ink3);text-decoration:none;
+  padding:16px 18px;transition:color 0.2s;position:relative;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.on{color:var(--accent)}
+.nav-links a.on::after{
+  content:'';position:absolute;bottom:0;left:18px;right:18px;
+  height:1px;background:var(--accent);
+}
+
+/* ── SHARED ── */
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+section{border-bottom:1px solid var(--rule);padding:96px 0}
+.s-label{
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--accent2);margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.s-label::before{content:'';width:24px;height:1px;background:var(--accent2)}
+.s-title{
+  font-family:var(--serif);font-size:2rem;font-style:italic;
+  font-weight:400;color:var(--ink);margin-bottom:56px;
+}
+
+/* ── HERO ── */
+#hero{
+  padding:0;border-bottom:1px solid var(--rule);
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 60% at 75% 40%, rgba(42,74,107,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(192,128,74,0.05) 0%, transparent 60%);
+  pointer-events:none;
+}
+/* subtle grid */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(var(--rule2) 1px,transparent 1px),linear-gradient(90deg,var(--rule2) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr auto;gap:40px;align-items:flex-end;
+  padding:64px 48px;max-width:1100px;margin:0 auto;width:100%;
+}
+.hero-tag{
+  font-family:var(--mono);font-size:0.65rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--accent2);margin-bottom:28px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--accent2)}
+h1{
+  font-family:var(--serif);
+  font-size:clamp(2.8rem,5vw,5rem);
+  font-weight:400;line-height:1;
+  color:var(--ink);margin-bottom:20px;
+}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-role{
+  font-size:0.85rem;font-weight:300;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--ink2);margin-bottom:32px;
+}
+.hero-bio{
+  font-size:1rem;font-weight:300;color:var(--ink2);
+  max-width:520px;line-height:1.8;margin-bottom:40px;
+}
+.hero-bio strong{font-weight:500;color:var(--ink)}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--accent);text-decoration:none;
+  border-bottom:1px solid var(--accent);padding-bottom:2px;
+  transition:gap 0.2s;
+}
+.hero-cta:hover{gap:16px}
+.hero-right{
+  display:flex;flex-direction:column;align-items:flex-end;gap:6px;
+  padding-bottom:4px;
+}
+.hero-stat{text-align:right}
+.hero-stat-n{
+  font-family:var(--serif);font-size:2.4rem;font-style:italic;
+  color:var(--accent);line-height:1;
+}
+.hero-stat-l{
+  font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--ink3);
+}
+.hero-stat-sep{width:1px;height:40px;background:var(--rule);margin:6px 0 6px auto}
+.lang-row{
+  display:flex;gap:6px;margin-top:20px;justify-content:flex-end;
+}
+.lang{
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;
+  padding:3px 9px;border:1px solid var(--rule);border-radius:2px;
+  color:var(--ink3);
+}
+
+/* ── À PROPOS ── */
+#apropos{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{
+  font-size:1rem;font-weight:300;color:var(--ink2);line-height:1.85;
+  margin-bottom:20px;
+}
+.about-text p strong{font-weight:500;color:var(--ink)}
+.about-contact{margin-top:36px;display:flex;flex-direction:column;gap:10px}
+.about-contact a{
+  font-family:var(--mono);font-size:0.7rem;color:var(--ink3);
+  text-decoration:none;display:flex;align-items:center;gap:10px;
+  transition:color 0.2s;
+}
+.about-contact a:hover{color:var(--ink)}
+.about-contact a::before{content:'→';color:var(--accent2);font-size:0.65rem}
+.about-exp{display:flex;flex-direction:column;gap:1px}
+.exp-row{
+  display:grid;grid-template-columns:90px 1fr;gap:16px;
+  padding:20px 0;border-bottom:1px solid var(--rule);
+  align-items:baseline;
+}
+.exp-row:last-child{border-bottom:none}
+.exp-yr{font-family:var(--mono);font-size:0.65rem;color:var(--ink3)}
+.exp-info{}
+.exp-co{font-size:0.78rem;color:var(--ink3);margin-bottom:2px}
+.exp-ro{font-size:0.9rem;font-weight:500;color:var(--ink);margin-bottom:3px}
+.exp-bd{font-size:0.75rem;color:var(--ink2);font-weight:300}
+
+/* ── PROJETS ── */
+#projets{background:var(--bg2)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.proj-card{
+  background:var(--bg2);padding:32px 28px;
+  transition:background 0.2s;
+  display:flex;flex-direction:column;gap:10px;
+}
+.proj-card:hover{background:var(--bg)}
+.proj-n{font-family:var(--mono);font-size:0.6rem;color:var(--accent2)}
+.proj-title{font-size:0.95rem;font-weight:500;color:var(--ink);line-height:1.35}
+.proj-desc{font-size:0.78rem;color:var(--ink2);font-weight:300;line-height:1.6;flex:1}
+.proj-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.ptag{
+  font-family:var(--mono);font-size:0.58rem;padding:2px 8px;
+  border:1px solid var(--rule);border-radius:2px;color:var(--ink3);
+}
+
+/* ── COMPÉTENCES ── */
+#competences{background:var(--bg)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.skill-block{}
+.sk-cat{
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:16px;
+  padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+.sk-list{display:flex;flex-direction:column;gap:7px}
+.sk-item{
+  font-size:0.82rem;font-weight:300;color:var(--ink2);
+  display:flex;align-items:center;gap:8px;
+}
+.sk-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--rule);flex-shrink:0}
+.sk-item.hi{color:var(--ink);font-weight:400}
+.sk-item.hi::before{background:var(--accent2)}
+
+/* ── GALERIE ── */
+#galerie{background:var(--bg2)}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:2px;background:var(--rule);
+  border:1px solid var(--rule);
+}
+.gi{
+  aspect-ratio:4/3;overflow:hidden;cursor:pointer;
+  background:var(--bg);position:relative;
+}
+.gi img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s ease,filter 0.3s;
+  filter:saturate(0.7);
+}
+.gi:hover img{transform:scale(1.05);filter:saturate(1)}
+
+/* ── LIGHTBOX ── */
+.lb{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(18,17,14,0.96);
+  align-items:center;justify-content:center;flex-direction:column;gap:20px;
+}
+.lb.open{display:flex}
+.lb img{max-width:85vw;max-height:80vh;object-fit:contain}
+.lb-bar{display:flex;align-items:center;gap:20px}
+.lb-btn{
+  font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;
+  color:rgba(247,246,243,0.45);background:none;
+  border:1px solid rgba(247,246,243,0.12);
+  padding:7px 16px;border-radius:2px;cursor:pointer;
+  transition:all 0.2s;
+}
+.lb-btn:hover{color:var(--bg);border-color:rgba(247,246,243,0.4)}
+.lb-ctr{font-family:var(--mono);font-size:0.6rem;color:rgba(247,246,243,0.3);min-width:44px;text-align:center}
+.lb-close{
+  position:fixed;top:20px;right:28px;
+  font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;
+  color:rgba(247,246,243,0.35);background:none;border:none;cursor:pointer;
+  transition:color 0.2s;
+}
+.lb-close:hover{color:var(--bg)}
+
+/* ── FOOTER ── */
+footer{
+  padding:40px 48px;max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.ft-name{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink3)}
+.ft-copy{font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.08em}
+
+/* ── ANIM ── */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-tag{animation:up .6s ease both .1s}
+h1{animation:up .6s ease both .18s}
+.hero-role{animation:up .6s ease both .24s}
+.hero-bio{animation:up .6s ease both .3s}
+.hero-cta{animation:up .6s ease both .38s}
+.hero-right{animation:up .6s ease both .28s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav,.wrap,footer{padding-left:28px;padding-right:28px}
+  .hero-inner{grid-template-columns:1fr;padding:56px 28px;gap:32px}
+  .hero-right{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:24px}
+  .hero-stat-sep{display:none}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .skills-grid{grid-template-columns:repeat(2,1fr);gap:28px}
+  .proj-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .proj-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .nav-id{display:none}
+}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Academic Profile</h1>
-    </header>
 
-    <div class="container">
-        <div class="sidebar-container">
-            <div class="profile">
-                <h1>Cecile Oujing Shan</h1>
-                <div class="contact-info">
-                    <p><span class="iconfont icon-major" style="margin-right: 10px;"></span> Mechanical Engineering | Energy Systems | Computational Modeling <br> Model Based System Engineering </p>
-                    <p><span class="iconfont icon-phone" style="margin-right: 10px;"></span> +33 (0)7 83 11 83 07</p>
-                    <p><span class="iconfont icon-email" style="margin-right: 10px;"></span> cecileoujingshan@gmail.com</p>
-                </div>
+<nav>
+  <span class="nav-id">Cécile O. Shan</span>
+  <div class="nav-links">
+    <a href="#hero" class="on">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#projets">Projets</a>
+    <a href="#competences">Outils</a>
+    <a href="#galerie">Galerie</a>
+  </div>
+</nav>
 
-                <div class="certifications">
-                    <h3>Certifications & Specializations</h3>
-                    <ul>
-                        <li><strong>Project Management Certifications</strong>
-                            <ul>
-                                <li>Microsoft Project Management Principles: Leadership, Governance, Risk Management, Stakeholder Engagement</li>
-                                <li>Engineering Project Management: Initiation & Planning: Project Lifecycle, Planning, Documentation, Stakeholder & Financial Analysis</li>
-                            </ul>
-                        </li>
-                        <li><strong>Machine Learning Specialization</strong>
-                            <ul>
-                                <li>Classification and Regression Trees (CART), Jupyter, Python Programming, Predictive Modeling</li>
-                                <li>Responsible AI, Reinforcement Learning, Feature Engineering, Random Forest Algorithm, Decision Trees</li>
-                                <li>NumPy, Unsupervised Learning, Supervised Learning, Applied Machine Learning, Deep Learning</li>
-                                <li>Artificial Intelligence, TensorFlow, Scikit-learn, AI & Machine Learning (AI/ML), Data Ethics</li>
-                            </ul>
-                        </li>
-                        <li><strong>Certificat Voltaire - Business Level</strong>
-                            <ul>
-                                <li>For executives, assistants, department heads, lawyers, notaries</li>
-                            </ul>
-                        </li>
-                        <li><strong>Fire & Life Safety Systems Specialization</strong>
-                            <ul>
-                                <li>Safety Assurance, Engineering Drawings, Safety and Security</li>
-                                <li>Process Flow Diagrams, Fire And Life Safety, Plumbing, Safety Standards</li>
-                                <li>Blueprint Reading, Safety Training, Building Codes, Structural Analysis, Hydraulics</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-wrapper">
-            <div class="content-container">
-                <div class="navigation">
-                    <a href="index.html" class="active">About</a>
-                    <a href="experiences.html">Experiences</a>
-                </div>
-
-                <div class="research-fields-container">
-                    <h2>BIO</h2>
-                    <p>Welcome! I am Cécile, a Master’s student in Mechanical & Energy Engineering at Sorbonne University. My research focuses on thermal optimization in electric motors, computational fluid dynamics (CFD), and renewable energy technologies.</p>
-                    <p>I have a strong background in mechanical engineering, thermodynamics, and numerical simulations. My expertise includes ANSYS, CATIA V5, MATLAB, Fortran, Python, and various simulation tools used for energy efficiency and mechanical design. Passionate about technological innovations, I aim to contribute to sustainable and efficient energy solutions.</p>
-                </div>
-
-                <div class="research-fields-container">
-                    <h2>Research Areas</h2>
-                    <div class="research-field">3D Modeling</div>
-                    <div class="research-field">Reliability, Availability, Maintainability, Safety</div>
-                    <div class="research-field">Advanced Systems and Energy Engineering</div>
-                    <div class="research-field">Continuous Optimization</div>
-                    <div class="research-field">R & D</div>
-                    <div class="research-field">CAD & CAM</div>
-                    <div class="research-field">Fluid Mechanics</div>
-                    <div class="research-field">Solid Mechanics</div>
-                    <div class="research-field">Structural Analysis & Composite Materials</div>
-                    <div class="research-field">Combustion</div>
-                    <div class="research-field">Industry 4.0</div>
-                    <div class="research-field">System Identification and Modeling</div>
-                </div>
-
-                <!-- MEDIA SECTION -->
-                <div class="research-fields-container">
-                    <h2>Media</h2>
-                    <div class="content-container media-container">
-                        <h3>Conception Simulation Result</h3>
-                        <img src="assets/robotl2.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/1.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/2.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/3.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/4.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/5.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/6.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/7.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/8.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/9.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/11.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/22.png" alt="Simulation Result" class="portfolio-img">
-                        <img src="assets/flammeconbu.png" alt="Simulation Result" class="portfolio-img">
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Ingénieure Mécanique</div>
+      <h1>Cécile<br><em>Oujing Shan</em></h1>
+      <div class="hero-role">Conception · Process · Simulation · Énergie</div>
+      <p class="hero-bio">
+        Je conçois et valide des équipements complexes pour l'industrie
+        <strong>navale</strong>, <strong>automobile</strong> et <strong>énergétique</strong>.
+        2 ans d'expérience entre Paris et Lille, du bureau d'études à la gigafactory.
+      </p>
+      <a href="mailto:cecileoujingshan@gmail.com" class="hero-cta">
+        Prendre contact →
+      </a>
     </div>
-
-    <!-- LIGHTBOX HTML -->
-    <div id="lightbox" class="lightbox">
-        <span class="close">&times;</span>
-        <img class="lightbox-img" id="lightbox-img">
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="hero-stat-n">2</div>
+        <div class="hero-stat-l">ans d'expérience</div>
+      </div>
+      <div class="hero-stat-sep"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">3</div>
+        <div class="hero-stat-l">secteurs</div>
+      </div>
+      <div class="hero-stat-sep"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">FR</div>
+        <div class="hero-stat-l">Paris · Lille</div>
+      </div>
+      <div class="lang-row">
+        <span class="lang">FR</span>
+        <span class="lang">EN</span>
+        <span class="lang">中文</span>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- LIGHTBOX JS -->
-    <script>
-        const images = document.querySelectorAll('.portfolio-img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const closeBtn = document.querySelector('.close');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        let currentIndex = 0;
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="wrap">
+    <div class="s-label">Qui je suis</div>
+    <div class="s-title">À propos</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Ingénieure mécanique diplômée de <strong>Sorbonne Université &amp; ENSAM</strong>,
+          je travaille à l'intersection de la mécanique, de la simulation numérique
+          et de l'amélioration industrielle.
+        </p>
+        <p>
+          Mon parcours couvre la <strong>conception navale</strong> (études de stabilité,
+          conformité réglementaire), l'<strong>optimisation thermique</strong> de moteurs
+          électriques et le <strong>support process industriel</strong> en gigafactory
+          batterie. J'aime autant structurer un problème sur papier que le résoudre
+          sur le terrain.
+        </p>
+        <div class="about-contact">
+          <a href="mailto:cecileoujingshan@gmail.com">cecileoujingshan@gmail.com</a>
+          <a href="tel:+33783118307">+33 (0)7 83 11 83 07</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <div class="s-label" style="margin-bottom:20px">Expériences</div>
+        <div class="about-exp">
+          <div class="exp-row">
+            <div class="exp-yr">2025 →</div>
+            <div class="exp-info">
+              <div class="exp-co">ACC — Gigafactory, Lille</div>
+              <div class="exp-ro">Ingénieure Process</div>
+              <div class="exp-bd">Ramp-up batteries · KPI · Troubleshooting</div>
+            </div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-yr">2025</div>
+            <div class="exp-info">
+              <div class="exp-co">Seine Design, Paris</div>
+              <div class="exp-ro">Ingénieure Conception Mécanique</div>
+              <div class="exp-bd">Naval · Stabilité · RDM · Bureau Veritas</div>
+            </div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-yr">2024</div>
+            <div class="exp-info">
+              <div class="exp-co">IFPEN, Rueil-Malmaison</div>
+              <div class="exp-ro">Ingénieure d'Études</div>
+              <div class="exp-bd">Thermique moteurs électriques · Ansys · CATIA</div>
+            </div>
+          </div>
+          <div class="exp-row">
+            <div class="exp-yr">2023</div>
+            <div class="exp-info">
+              <div class="exp-co">ITG Consulting, Paris</div>
+              <div class="exp-ro">Chargée de Recherche</div>
+              <div class="exp-bd">Hydrogène · Cycle de vie · Rapport technique</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        images.forEach((img, index) => {
-            img.addEventListener('click', () => {
-                currentIndex = index;
-                lightbox.style.display = 'block';
-                lightboxImg.src = img.src;
-            });
-        });
+<!-- PROJETS -->
+<section id="projets">
+  <div class="wrap">
+    <div class="s-label">Travaux sélectionnés</div>
+    <div class="s-title">Projets</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-n">01</div>
+        <div class="proj-title">Protection parasismique — Tour Taipei 101</div>
+        <div class="proj-desc">Modélisation d'un TMD (amortisseur à masse accordée) et validation par analyses structurelles complètes.</div>
+        <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Dynamique des structures</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-n">02</div>
+        <div class="proj-title">Robot humanoïde — de la CAO à la validation</div>
+        <div class="proj-desc">Conception intégrale 3D et validation cinématique &amp; dynamique d'un robot humanoïde.</div>
+        <div class="proj-tags"><span class="ptag">SolidWorks</span><span class="ptag">SW Motion</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-n">03</div>
+        <div class="proj-title">Optimisation aérodynamique NACA 0012</div>
+        <div class="proj-desc">Optimisation de profil d'aile par méthodes adjoint sur maillage adaptatif.</div>
+        <div class="proj-tags"><span class="ptag">SU2</span><span class="ptag">Gmsh</span><span class="ptag">Paraview</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-n">04</div>
+        <div class="proj-title">Moteurs thermiques — Performances &amp; Émissions</div>
+        <div class="proj-desc">Modélisation du cycle moteur et quantification des émissions polluantes (MACI).</div>
+        <div class="proj-tags"><span class="ptag">MATLAB</span><span class="ptag">Thermodynamique</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-n">05</div>
+        <div class="proj-title">Installation photovoltaïque — Grenoble</div>
+        <div class="proj-desc">Dimensionnement complet et analyse de rentabilité d'une installation solaire.</div>
+        <div class="proj-tags"><span class="ptag">PVsyst</span><span class="ptag">PVgis</span><span class="ptag">ENR</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-n">06</div>
+        <div class="proj-title">Simulations numériques Fortran 90</div>
+        <div class="proj-desc">Thermique instationnaire, dynamique moléculaire et mécanique du vol — série de problèmes numériques.</div>
+        <div class="proj-tags"><span class="ptag">Fortran</span><span class="ptag">Numérique</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            lightboxImg.src = images[currentIndex].src;
-        });
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            lightboxImg.src = images[currentIndex].src;
-        });
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.style.display = 'none'; });
-    </script>
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <div class="wrap">
+    <div class="s-label">Stack technique</div>
+    <div class="s-title">Outils &amp; compétences</div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <div class="sk-cat">CAO / DAO</div>
+        <div class="sk-list">
+          <span class="sk-item hi">CATIA V5 / 3DX</span>
+          <span class="sk-item hi">SolidWorks</span>
+          <span class="sk-item hi">AutoCAD</span>
+          <span class="sk-item">Rhino 5</span>
+          <span class="sk-item">Revit</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="sk-cat">Simulation</div>
+        <div class="sk-list">
+          <span class="sk-item hi">Ansys Fluent</span>
+          <span class="sk-item hi">Ansys Mechanical</span>
+          <span class="sk-item hi">MaatHydro</span>
+          <span class="sk-item">SU2 / Gmsh</span>
+          <span class="sk-item">StarCCM+</span>
+          <span class="sk-item">RDM7</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="sk-cat">Programmation</div>
+        <div class="sk-list">
+          <span class="sk-item hi">Python</span>
+          <span class="sk-item hi">MATLAB</span>
+          <span class="sk-item">Fortran 90</span>
+          <span class="sk-item">LaTeX</span>
+          <span class="sk-item">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="sk-cat">Domaines</div>
+        <div class="sk-list">
+          <span class="sk-item hi">CFD / FEA</span>
+          <span class="sk-item hi">Thermique</span>
+          <span class="sk-item hi">RDM</span>
+          <span class="sk-item">Énergie renouvelable</span>
+          <span class="sk-item">Process industriel</span>
+          <span class="sk-item">RAMS · MBSE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>Copyright &copy; 2024 Cécile Oujing S. All Rights Reserved.</p>
-    </footer>
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="s-label">Visuels de travaux</div>
+    <div class="s-title">Galerie</div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 48px">
+    <div class="gallery">
+      <div class="gi"><img src="assets/robotl2.png" alt="Robot humanoïde" class="gi-img"></div>
+      <div class="gi"><img src="assets/1.png" alt="Simulation" class="gi-img"></div>
+      <div class="gi"><img src="assets/2.png" alt="Simulation" class="gi-img"></div>
+      <div class="gi"><img src="assets/3.png" alt="Simulation" class="gi-img"></div>
+      <div class="gi"><img src="assets/4.png" alt="Simulation" class="gi-img"></div>
+      <div class="gi"><img src="assets/5.png" alt="Simulation" class="gi-img"></div>
+      <div class="gi"><img src="assets/6.png" alt="Conception" class="gi-img"></div>
+      <div class="gi"><img src="assets/7.png" alt="Conception" class="gi-img"></div>
+      <div class="gi"><img src="assets/8.png" alt="Analyse" class="gi-img"></div>
+      <div class="gi"><img src="assets/9.png" alt="Analyse" class="gi-img"></div>
+      <div class="gi"><img src="assets/11.png" alt="Résultat" class="gi-img"></div>
+      <div class="gi"><img src="assets/22.png" alt="Résultat" class="gi-img"></div>
+      <div class="gi"><img src="assets/flammeconbu.png" alt="Combustion" class="gi-img"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-name">Cécile Oujing Shan</div>
+  <div class="ft-copy">© 2025 — Paris</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lb" class="lb">
+  <button class="lb-close" id="lb-close">fermer ✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar">
+    <button class="lb-btn" id="lb-prev">← préc.</button>
+    <div class="lb-ctr" id="lb-ctr"></div>
+    <button class="lb-btn" id="lb-next">suiv. →</button>
+  </div>
+</div>
+
+<script>
+const imgs=document.querySelectorAll('.gi-img');
+const lb=document.getElementById('lb');
+const lbi=document.getElementById('lb-img');
+const ctr=document.getElementById('lb-ctr');
+let cur=0;
+function open(i){cur=(i+imgs.length)%imgs.length;lbi.src=imgs[cur].src;lbi.alt=imgs[cur].alt;ctr.textContent=(cur+1)+'/'+imgs.length;lb.classList.add('open');document.body.style.overflow='hidden'}
+function close(){lb.classList.remove('open');document.body.style.overflow=''}
+imgs.forEach((img,i)=>img.parentElement.addEventListener('click',()=>open(i)));
+document.getElementById('lb-close').addEventListener('click',close);
+document.getElementById('lb-prev').addEventListener('click',()=>open(cur-1));
+document.getElementById('lb-next').addEventListener('click',()=>open(cur+1));
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')open(cur-1);if(e.key==='ArrowRight')open(cur+1)});
+
+// scroll spy
+const secs=[...document.querySelectorAll('section[id]')];
+const links=[...document.querySelectorAll('.nav-links a')];
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove('on'));const a=document.querySelector('.nav-links a[href="#'+e.target.id+'"]');if(a)a.classList.add('on')}})},{threshold:0.35});
+secs.forEach(s=>obs.observe(s));
+</script>
 </body>
 </html>
